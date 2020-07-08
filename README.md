@@ -39,7 +39,7 @@ $ gem install nu-2.0.1.gem
 
 Now all dependencies should be installed.
 
-Databases. Databases for single copy genes are supplied in the /src/ directory and this directory is assumed to be in the same folder as the wrapper script. The FunTaxDB (Uniref100 database along with the taxonomic information for each gene) can be downloaded from the link https://uni-duisburg-essen.sciebo.de/s/pi4cuYwyZ3KJVMl and must also be placed into the /src/ directory (size of the database: 71.06 GB). The path of the Uniref100 database can be modified but should be adjusted at the start of the wrapper script. The fasta files needs to be formatted once:
+Databases. Databases for single copy genes are supplied in the /bin/SCG/ directory and this directory is assumed to be in the same folder as the wrapper script. The FunTaxDB (Uniref100 database along with the taxonomic information for each gene) can be downloaded from the link https://uni-duisburg-essen.sciebo.de/s/pi4cuYwyZ3KJVMl and must also be placed into the /bin/SCG/ directory. The path of the Uniref100 database can be modified but should be adjusted at the start of the wrapper script. The fasta files needs to be formatted once:
 
 $ diamond makedb --in FunTaxDBv1.1.fasta -d FunTaxDBv1.1
 
@@ -60,7 +60,7 @@ Example usage for 2):
 
 $ bash uBin_wrapper.sh -g true -p pdbg -e diamond -t 10 -b das_tool_DASTool_scaffolds2bin.txt -c scaffold2cov.txt -y scaffold2gc.txt -l scaffold2len.txt -x scaffold2taxonomy.txt
 
-Example datasets are provided as XXX.
+An example dataset from Gulliver et al. 2019 DOI:10.1111/1758-2229.12675 is provided in 'example_dataset'.
 
 # Installing uBin
 For the time being, uBin is hosted here: https://github.com/Shin--/uBin/releases/tag/0.9.14
