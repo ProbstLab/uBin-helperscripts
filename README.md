@@ -74,4 +74,4 @@ ubin_0.9.14_amd64.deb for Linux
 
 Required are 8 GB of RAM. We use 16 GB to ensure smooth operations (this of course also depends on your dataset).
 
-An example dataset from the CAMI callenge is provided in 'CAMI_test_dataset' for testing the uBin software.
+An example dataset from the CAMI challenge is provided in 'CAMI_test_dataset' for testing the uBin software.
