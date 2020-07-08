@@ -60,7 +60,7 @@ Example usage for 2):
 
 $ bash uBin_wrapper.sh -g true -p pdbg -e diamond -t 10 -b das_tool_DASTool_scaffolds2bin.txt -c scaffold2cov.txt -y scaffold2gc.txt -l scaffold2len.txt -x scaffold2taxonomy.txt
 
-An example dataset from Gulliver et al. 2019 DOI:10.1111/1758-2229.12675 is provided in 'example_dataset'.
+An example dataset from Gulliver et al. 2019 DOI:10.1111/1758-2229.12675 is provided in 'example_dataset' for testing the uBin_wrapper.sh.
 
 # Installing uBin
 For the time being, uBin is hosted here: https://github.com/Shin--/uBin/releases/tag/0.9.14
@@ -73,3 +73,5 @@ uBin-0.9.14.dmg for MacOS
 ubin_0.9.14_amd64.deb for Linux
 
 Required are 8 GB of RAM. We use 16 GB to ensure smooth operations (this of course also depends on your dataset).
+
+An example dataset from the CAMI callenge is provided in 'CAMI_test_dataset' for testing the uBin software.
