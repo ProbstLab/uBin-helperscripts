@@ -84,7 +84,7 @@ The uBin interface consists of two parts, an Import tab and a Samples tab.
 
 The following figure shows the import tab, accessible via the 'Import' button in the top left of the uBin interface. Here, new samples can be imported. 
 
-![alt text](./uBin_interface_explanation/import_tab.pdf?raw=true)
+![picture](./uBin_interface_explanation/import_tab.pdf?raw=true)
 
 Their format needs to be in accordance to the output of the described input generator and consists of a tab-separated overview table (called taxonomy file in the interface), containing (in that order) the scaffold name, the GC content, the coverage, the length, the consensus taxonomy and finally the Bin column. The Bin column can be empty apart from the header if uBin is to be used as a direct binning software. There should be no blanks in the file and the column headers should be the same as in the supplied test files. The second file contains comma-separated single copy gene (scg) information for universal scgs of both Bacteria and Archaea. The software was developed with the genome curation/binning of prokaryotes in mind.
 
@@ -97,7 +97,7 @@ Import troubleshooting
 
 The following shows the Samples tab, which is the tab opening upon starting uBin and can be accessed via the button in the top left.
 
-![alt text](./uBin_interface_explanation/Sample_tab.pdf?raw=true)
+![picture](./uBin_interface_explanation/Sample_tab.pdf?raw=true)
 
 the Samples interface has multiple plots showing specific characteristics of your selected Bin in various views. All plots apart from the SCG plots (the two barcharts on the right) are interactive, meaning if you change the selection in one plot, the selection in the other plots will follow suit. Different filtering options are available
 1) barcharts for GC and coverage at the bottom that allow the definition of an acceptable range of Cov/GC values by moving the borders with your cursor
