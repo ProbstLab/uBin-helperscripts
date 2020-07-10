@@ -40,7 +40,6 @@ function display_version() {
   exit 1
 }
 
-uniref100=${DIR}/SCG/Uniref100_notax_and_tax_addedtogether_renewedDB.dmnd
 
 function display_help() {
   echo " "
@@ -60,6 +59,8 @@ function display_help() {
   echo "   -b, --scaf2bin             tab-separated file with scaffold IDs in the 1st and bins in the 2nd column. Optional"
   echo "   -v, --version              Print version number and exit."
   echo "   -h, --help                 Show this message."
+  echo "   -u,--uniref100             The default path for the Uniref100 db is ./SCG/FunTaxDBv1.1.dmnd"
+  echo "                              If you have the Uniref100 db under a different name or a different location, please specify here"
   echo " "
   echo "   -g,--gatherfiles          Gather previously generated coverage,gc,length, taxonomy and scaffold information in an overview file and generate SCG data. "
   echo "                             Boolean: default: false"
@@ -79,7 +80,7 @@ function display_help() {
     debug="FALSE"
     threads=1 
     search_engine="usearch"
-
+    uniref100=${DIR}/SCG/FunTaxDBv1.1.dmnd
 
 
 while [ $# -gt 0 ]; do
@@ -103,6 +104,10 @@ while [ $# -gt 0 ]; do
         -sr | --singleread )          shift
                                       single_read=$1
 				      shift
+         ;;
+	-u | --uniref100 )            shift
+                                      uniref100=$1
+                                      shift
          ;;
         -t | --threads )              shift
                                       threads=$1
@@ -187,7 +192,7 @@ else
         echo "no scaf2binfile was supplied"
         else
 		min1000=$(echo $faa | sed "s/\.genes\.faa//")
-                bash ${DIR}/09_additionbincol.sh $scaf2bin $min1000.overview.txt > $min1000.overview_bincol.txt
+                bash ${DIR}/09_additionbincol.sh $scaf2bin $min1000.fasta.overview.txt > $min1000.fasta.overview_bincol.txt
         fi
     exit 1
 fi
@@ -196,9 +201,9 @@ fi
 bash ${DIR}/03_format_assembly.sh $scaffolds $prefix
 #mapping
 if [ -z ${single_read+x} ];then
-	bash ${DIR}/04_00map_mod.sh $scaffolds $read1 $read2 $threads
+	bash ${DIR}/04_00map_mod.sh $scaffolds $read1 $read2 $threads $DIR
 else
-	bash ${DIR}/04_map_SR.sh $scaffolds $single_read $threads
+	bash ${DIR}/04_map_SR.sh $scaffolds $single_read $threads $DIR
 fi
 # define output file names generated in the previous mapping
 cov=$(echo $scaffolds | sed "s/$/.scaff2cov.txt/")
@@ -210,7 +215,7 @@ bash ${DIR}/06_MPfast_mod.sh $min1000 $threads
 faa=$(echo $min1000 | sed "s/fasta$/genes.faa/")
 
 ## uniref100 annotation
-bash ${DIR}/07_00annotate_newdb.sh $faa $min1000 $uniref100 $threads
+bash ${DIR}/07_00annotate_newdb.sh $faa $min1000 $uniref100 $threads $DIR
 tax=$(echo $min1000 | sed "s/$/.scaff2tax.txt/")
 
 #overview table and SCG identification, variable search engines

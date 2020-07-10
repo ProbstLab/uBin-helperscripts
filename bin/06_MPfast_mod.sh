@@ -1,7 +1,7 @@
-if [ "$#" -lt 1 ]
+if [ "$#" -lt 2 ]
 then
    	echo "runs prodigal in meta mode with the specified number of threads in parallel."
-	echo "usage: mp_fast.sh <scaffold_file>"
+	echo "usage: mp_fast.sh <scaffold_file> <threads>"
  exit 1
 fi
 
