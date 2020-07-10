@@ -31,11 +31,9 @@ After loading  the respective ruby version, the gems with the coresponding versi
 
 $ rvm gem install {gemname} -v {version}
 
-For the gem nu, the required version 2.0.1 is not available in public repositories and thus nu.2.0.1 is supplied as nu.gemspec along with the wrapper. The gem can be build installed by the following commands:
+For the gem nu, the required version 2.0.1 is not available in public repositories and thus nu.2.0.1 is supplied as the gem file nu-2.0.1.gem along with the wrapper. The gem installed by the following command:
 
-$ gem build nu.gemspec
-
-$ gem install nu-2.0.1.gem  
+$ gem install --local nu-2.0.1.gem
 
 Now all dependencies should be installed.
 
