@@ -27,9 +27,19 @@ or set as default using
 
 $ rvm use 2.1 --default
 
-After loading  the respective ruby version, the gems with the coresponding versions listed in ruby_gemlist.info can be installed using 
+The bundler gem can be installed using
+
+$ rvm gem install bundler -v 1.16
+
+The bundler gem then allows the direct installation of the ruby gems (defined in the 'Gemfile') with the requisite versions using the command
+
+$ bundle install
+
+If there are errors during the installation, you may try to install the gems (defined in the Gemfile) separately using the command
 
 $ rvm gem install {gemname} -v {version}
+
+If errors still occur, try $ rvm gem install {gemname} without the version specification.
 
 For the gem nu, the required version 2.0.1 is not available in public repositories and thus nu.2.0.1 is supplied as the gem file nu-2.0.1.gem along with the wrapper. The gem installed by the following command:
 
