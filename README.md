@@ -19,7 +19,9 @@ $ conda activate uBin_input_generator_pyt37
 
 and should be active whenever the wrapper will be used.
 
-Ruby version and gems. The ruby version most of the scripts are written in is not available via conda and thus needs to be installed separately. For this, a ruby package (“gem”) manager like rvm (https://rvm.io/) is recommended. Using rvm, ruby version 2.3.1 can be installed using
+Ruby version and gems. The ruby version most of the scripts are written in is not available via conda and thus needs to be installed separately. For this, a ruby package (“gem”) manager like rvm (https://rvm.io/) is recommended. Some users have reported problems installing rvm as the required libssl1.0-dev is not available in all Unix distributions. Fixes for this problem have been described in https://github.com/rvm/rvm/issues/4915.
+
+Using rvm, ruby version 2.3 can be installed using
 
 $ rvm install 2.3
 
@@ -29,11 +31,11 @@ $ rvm use 2.3
 
 or set as default using
 
-$ rvm use 2.1 --default
+$ rvm use 2.3 --default
 
 The bundler gem can be installed using
 
-$ rvm gem install bundler -v 1.16
+$ gem install bundler -v 1.16
 
 The bundler gem then allows the direct installation of the ruby gems (defined in the 'Gemfile') with the requisite versions using the command
 
