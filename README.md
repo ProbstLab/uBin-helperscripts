@@ -3,6 +3,9 @@ Software for manual curation of genomes from metagenomes
 
 Contact: till.bornemann@uni-duisburg-essen.de
 
+The uBin App is located in the repository https://github.com/ProbstLab/uBin.
+The input Generation script as well as test files are located in https://github.com/ProbstLab/uBin-helperscripts.
+
 # Creating input files for uBin
 Prerequisites. The uBin input generator (uBin_wrapper.sh) is bourne-shell-based, requiring an UNIX-based operating system. Users with a Windows OS need to generate a virtual UNIX environment, e.g. using VirtualBox (https://www.virtualbox.org/) and we recommend creating an Ubuntu-based UNIX system.
 
