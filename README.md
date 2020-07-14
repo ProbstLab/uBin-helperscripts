@@ -75,8 +75,9 @@ $ bash uBin_wrapper.sh -g true -p pdbg -e diamond -t 10 -b das_tool_DASTool_scaf
 An example dataset from Gulliver et al. 2019 DOI:10.1111/1758-2229.12675 is provided in 'example_dataset' for testing the uBin_wrapper.sh.
 
 # Installing uBin
-For the time being, uBin is hosted here: https://github.com/Shin--/uBin/releases/tag/0.9.14
-Use the following files for installation of uBin on the respective operating platform:
+
+The current release of uBin can be downloaded from https://github.com/ProbstLab/uBin/releases/tag/0.9.14
+Use the following files for installation of uBin on the respective operating platform (recommended):
 
 uBin-Setup-0.9.14.exe for Windows
 
@@ -84,9 +85,10 @@ uBin-0.9.14.dmg for MacOS
 
 ubin_0.9.14_amd64.deb for Linux
 
-Required are 8 GB of RAM. We use 16 GB to ensure smooth operations (this of course also depends on your dataset).
+Required are 8 GB of RAM. We use 16 GB to ensure smooth operations (this of course also depends on your dataset). 
+Alternatively, you can also compile it yourself by following the instructions in the uBin repository https://github.com/ProbstLab/uBin.
 
-Two example dataset from the CAMI challenge are provided in 'CAMI_test_dataset' for testing the uBin software (low and medium complexity datasets).
+Three example datasets from the CAMI challenge are provided in 'CAMI_test_dataset' for testing the uBin software (low, medium and high complexity datasets).
 
 # The uBin interface
 
