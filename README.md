@@ -51,7 +51,7 @@ $ rvm gem install {gemname}
 
 without the version specification.
 
-For the gem nu, the required version 2.0.1 is not available in public repositories and thus nu.2.0.1 is supplied as the gem file nu-2.0.1.gem along with the wrapper. The gem installed by the following command:
+For the gem nu, the required version 2.0.1 is not available in public repositories and thus nu.2.0.1 is supplied as the gem file nu-2.0.1.gem along with the wrapper. You can find the license for the nu gem at https://github.com/bcthomas/mgnu. The gem is installed by the following command:
 
 $ gem install --local nu-2.0.1.gem
 
