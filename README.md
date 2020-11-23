@@ -65,10 +65,20 @@ Usage. There are two basic modes of operation for uBin_wrapper.sh:
 
 1) RUNS all processing steps starting from the assembly fasta file and the respective unshuffled reads and ending up with prepared uBin input. Bin assignments can also be added if needed.
 
-2) COLLECTS GC, coverage, taxonomy, length and bin assignments, RUNS single copy gene prediction on already predicted ORFs, and PREPARES uBin input tables from previously calculated results. All information needs to be provided as flatfiles with scaffold to information.
+2) COLLECTS GC, coverage, taxonomy, length and bin assignments, RUNS single copy gene prediction on already predicted ORFs, and PREPARES uBin input tables from previously calculated results. All information needs to be provided as flatfiles with scaffold to information (tab-separated).
 Switching between the modes is enabled through the -g / --gatherfiles flag, with 1) being the default application. Type 
 
 $ bash uBin_wrapper.sh -h to see all possible commands. 
+
+3) If you already have an overview file summarizing GC, coverage, taxonomy and length information for each scaffold and following the required format (for details see below) and just want to add the bin information to this table, you can also use the script https://github.com/ProbstLab/uBin-helperscripts.git/bin/09_additionbincol.sh directly to add the Bin information to the overview file. 
+
+Required format of overview file(tab-separated columns with the taxonomic levels being ';'-separated and the column names need to be the same as in the format example):
+```
+scaffold	GC	coverage	length	taxonomy
+PD_BG_1_1000_length_2754_cov_3_432753	51.6	5.6	2754	Bacteria;Proteobacteria;Gammaproteobacteria;Methylococcales;Methylomonas;unclassified
+```
+
+$ bash 09_additionbincol.sh {scaf2bin-file} {overviewfile} > {overviewfile_with_bincol}.txt
 
 Example usage for 1):
 
@@ -77,6 +87,9 @@ $ bash uBin_wrapper.sh -s scaffolds.fasta -p pdbg -r1 BG_1_S1_L001_interleaved_t
 Example usage for 2): 
 
 $ bash uBin_wrapper.sh -g true -p pdbg -e diamond -t 10 -b das_tool_DASTool_scaffolds2bin.txt -c scaffold2cov.txt -y scaffold2gc.txt -l scaffold2len.txt -x scaffold2taxonomy.txt
+
+Example usage for 3):
+$ bash 09_additionbincol.sh das_tool_DASTool_scaffolds2bin.txt pdbg_min1000.fasta.overview.txt > pdbg_min1000.fasta.overview_bincol.txt
 
 An example dataset from Gulliver et al. 2019 DOI:10.1111/1758-2229.12675 is provided in 'example_dataset' for testing the uBin_wrapper.sh.
 
