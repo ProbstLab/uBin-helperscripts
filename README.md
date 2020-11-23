@@ -89,6 +89,7 @@ Example usage for 2):
 $ bash uBin_wrapper.sh -g true -p pdbg -e diamond -t 10 -b das_tool_DASTool_scaffolds2bin.txt -c scaffold2cov.txt -y scaffold2gc.txt -l scaffold2len.txt -x scaffold2taxonomy.txt
 
 Example usage for 3):
+
 $ bash 09_additionbincol.sh das_tool_DASTool_scaffolds2bin.txt pdbg_min1000.fasta.overview.txt > pdbg_min1000.fasta.overview_bincol.txt
 
 An example dataset from Gulliver et al. 2019 DOI:10.1111/1758-2229.12675 is provided in 'example_dataset' for testing the uBin_wrapper.sh.
