@@ -30,7 +30,7 @@ scgdir = "#{dbdir}/SCG" if scgdir.nil?
 
 # allow src dir to be out of bin and under control of UBIN_RBSRC env var
 srcdir=ENV['UBIN_RBSRC']
-srcdir = "#{dbdir}/src" if src.nil?
+srcdir = "#{dbdir}/src" if srcdir.nil?
 
 #puts "#{sca} #{pro} #{dbdir} #{engine} #{threads}"
 # read all scaffolds
