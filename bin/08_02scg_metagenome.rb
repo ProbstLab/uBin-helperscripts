@@ -23,6 +23,15 @@ pro=opts[:proteins]
 dbdir=opts[:dbdirectory]
 engine=opts[:engine_search]
 threads=opts[:threads]
+
+# allow SCG dir to be out of bin and under control of SCG_DATA env var
+scgdir = ENV['SCG_DATA']
+scgdir = "#{dbdir}/SCG" if scgdir.nil?
+
+# allow src dir to be out of bin and under control of UBIN_RBSRC env var
+srcdir=ENV['UBIN_RBSRC']
+srcdir = "#{dbdir}/src" if srcdir.nil?
+
 #puts "#{sca} #{pro} #{dbdir} #{engine} #{threads}"
 # read all scaffolds
 scaff = []
@@ -66,11 +75,11 @@ ascg="#{pro}.archaea.scg"
 puts "#{bscg} #{ascg}"
 ## bacterial blast bacteria_all.faa
 puts "running blast for bacterial SCGs... this may take a while..."
-`ruby #{dbdir}/src/scg_blank_#{engine}.rb #{engine} #{pro} #{dbdir}/SCG/bacteria_all.faa #{dbdir}/SCG/bacteria_all.scg.faa #{dbdir}/SCG/bacteria_all.scg.lookup #{threads}`
+`ruby #{srcdir}/scg_blank_#{engine}.rb #{engine} #{pro} #{scgdir}/bacteria_all.faa #{scgdir}/bacteria_all.scg.faa #{scgdir}/bacteria_all.scg.lookup #{threads}`
 `mv #{pro}.scg #{bscg}`
 
 ##archaeal blast
-`ruby #{dbdir}/src/scg_blank_#{engine}.rb #{engine} #{pro} #{dbdir}/SCG/archaea_all.faa #{dbdir}/SCG/archaea_all.scg.faa #{dbdir}/SCG/archaea_all.scg.lookup #{threads}`
+`ruby #{srcdir}/scg_blank_#{engine}.rb #{engine} #{pro} #{scgdir}/archaea_all.faa #{scgdir}/archaea_all.scg.faa #{scgdir}/archaea_all.scg.lookup #{threads}`
 `mv #{pro}.scg #{ascg}`
 
 #check if SCG prediction worked
