@@ -63,7 +63,7 @@ $ diamond makedb --in FunTaxDBv1.1.fasta -d FunTaxDBv1.1
 
 Usage. There are two basic modes of operation for uBin_wrapper.sh:
 
-1) RUNS all processing steps starting from the assembly fasta file and the respective unshuffled reads and ending up with prepared uBin input. Bin assignments can also be added if needed. You currently need to execute this mode from the folder with your assembly file.
+1) RUNS all processing steps starting from the assembly fasta file and the respective unshuffled reads and ending up with prepared uBin input. Bin assignments can also be added if needed.
 
 2) COLLECTS GC, coverage, taxonomy, length and bin assignments, RUNS single copy gene prediction on already predicted ORFs, and PREPARES uBin input tables from previously calculated results. All information needs to be provided as flatfiles with scaffold to information (tab-separated).
 Switching between the modes is enabled through the -g / --gatherfiles flag, with 1) being the default application. Type 
