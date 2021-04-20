@@ -2,7 +2,7 @@
 
 if [ "$#" -lt 5 ]
 then
-  	echo "usage: map.sh <input-fasta> <fwd_fastq> <rev_fastq> <threads> <directory>"
+  	echo "usage: bash 04_00map_mod.sh <input-fasta> <fwd_fastq> <rev_fastq> <threads> <directory>"
 	exit 1
 fi
 
@@ -11,12 +11,14 @@ read1=$2
 read2=$3
 threads=$4
 dir=$5
+assemblyfolder=$(echo $assembly | awk -F"/" 'BEGIN{OFS="/"} {gsub(/.*/,"",$NF);print $0}')
+assemblybasename=$(echo $assembly | awk -F"/" '{print $NF}')
 echo "creating mapping index"
-mkdir bt2
-bowtie2-build $assembly bt2/$assembly > bt2/$assembly.log
+mkdir $assemblyfolder/bt2
+bowtie2-build $assembly $assemblyfolder/bt2/$assemblybasename > $assemblyfolder/bt2/$assemblybasename.log
 
 echo "mapping..."
-nice bowtie2 -p $threads  --no-unal --sensitive -x bt2/$assembly -1 $read1 -2 $read2 2> $assembly.sam.log > $assembly.sam
+nice bowtie2 -p $threads  --no-unal --sensitive -x $assemblyfolder/bt2/$assemblybasename -1 $read1 -2 $read2 2> $assembly.sam.log > $assembly.sam
 
 echo "calculating coverage..."
 ruby $dir/04_01calc_coverage_v3.rb -s $assembly.sam -f $assembly | sort -k1,1 > $assembly.scaff2cov.txt
@@ -29,6 +31,6 @@ ruby $dir/04_03fasta_length_individual.rb -f $assembly | sort -k1,1 > $assembly.
 
 echo "cleaning up..."
 rm $assembly.sam
-rm -r bt2
+rm -r $assemblyfolder/bt2
 
 echo "...done!"
