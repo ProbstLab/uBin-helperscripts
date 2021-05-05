@@ -11,7 +11,7 @@ read1=$2
 read2=$3
 threads=$4
 dir=$5
-assemblyfolder=$(echo $assembly | awk -F"/" 'BEGIN{OFS="/"} {gsub(/.*/,"",$NF);print $0}')
+assemblyfolder=$(dirname $assembly)
 assemblybasename=$(echo $assembly | awk -F"/" '{print $NF}')
 echo "creating mapping index"
 mkdir $assemblyfolder/bt2
