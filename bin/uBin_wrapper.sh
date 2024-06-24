@@ -33,6 +33,11 @@ while [ -h "$SOURCE" ]; do
 
       thisdir=$(pwd)
 
+# allow SCG dir to be out of bin and under control of SCG_DATA env var
+SCG_DIR=${SCG_DATA:-${DIR}/SCG} 
+uniref100=${SCG_DIR}/FunTaxDBv1.1.dmnd
+
+
 function display_version() {
   echo
   echo "uBin input preparer version 1.0"
@@ -59,7 +64,7 @@ function display_help() {
   echo "   -b, --scaf2bin             tab-separated file with scaffold IDs in the 1st and bins in the 2nd column. Optional"
   echo "   -v, --version              Print version number and exit."
   echo "   -h, --help                 Show this message."
-  echo "   -u,--uniref100             The default path for the Uniref100 db is ./SCG/FunTaxDBv1.1.dmnd"
+  echo "   -u,--uniref100             The default path for the Uniref100 db is ${SCG_DIR}/FunTaxDBv1.1.dmnd"
   echo "                              If you have the Uniref100 db under a different name or a different location, please specify here"
   echo " "
   echo "   -g,--gatherfiles          Gather previously generated coverage,gc,length, taxonomy and scaffold information in an overview file and generate SCG data. "
@@ -80,7 +85,6 @@ function display_help() {
     debug="FALSE"
     threads=1 
     search_engine="usearch"
-    uniref100=${DIR}/SCG/FunTaxDBv1.1.dmnd
 
 
 while [ $# -gt 0 ]; do
